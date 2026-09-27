@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-27T11:08:58.738Z",
+  "lastUpdated": "2026-09-27T12:15:37.294Z",
   "events": [
     {
       "id": "9f2180f5cace8d8a8caa886584aee0d93d767cc4",
@@ -15,7 +15,7 @@
       "startDate": "2026-09-16",
       "endDate": "2026-10-31",
       "dateLabel": "16 Set 31 Out 2026",
-      "scrapedAt": "2026-09-27T11:08:56.342Z"
+      "scrapedAt": "2026-09-27T12:15:34.351Z"
     },
     {
       "id": "c8dc920d98e7c479eec8cf857731aeb88e7eabcc",
@@ -31,7 +31,7 @@
       "startDate": "2026-09-18",
       "endDate": "2026-09-27",
       "dateLabel": "18 Set 27 Set 2026",
-      "scrapedAt": "2026-09-27T11:08:56.044Z"
+      "scrapedAt": "2026-09-27T12:15:34.122Z"
     },
     {
       "id": "081d0c6ba0d001caf5ec33c0d8589077230dd658",
@@ -47,7 +47,7 @@
       "startDate": "2026-09-19",
       "endDate": "2026-10-10",
       "dateLabel": "19 Set 10 Out 2026",
-      "scrapedAt": "2026-09-27T11:08:56.108Z"
+      "scrapedAt": "2026-09-27T12:15:34.086Z"
     },
     {
       "id": "2af32a133fe703b135a17ef14661e13cd7e9bd53",
@@ -63,7 +63,7 @@
       "startDate": "2026-09-23",
       "endDate": "2026-09-30",
       "dateLabel": "23 Set 30 Set 2026",
-      "scrapedAt": "2026-09-27T11:08:56.010Z"
+      "scrapedAt": "2026-09-27T12:15:34.107Z"
     },
     {
       "id": "723d16e7efadc27f44142dd17476cf14d386bf32",
@@ -79,7 +79,7 @@
       "startDate": "2026-09-25",
       "endDate": "2026-09-27",
       "dateLabel": "25 Set 27 Set 2026",
-      "scrapedAt": "2026-09-27T11:08:55.883Z"
+      "scrapedAt": "2026-09-27T12:15:34.019Z"
     },
     {
       "id": "030b14fb93af157b3ce85bd5af8faee92fbd949d",
@@ -95,7 +95,7 @@
       "startDate": "2026-09-26",
       "endDate": "2026-10-30",
       "dateLabel": "26 Set 30 Out 2026",
-      "scrapedAt": "2026-09-27T11:08:56.088Z"
+      "scrapedAt": "2026-09-27T12:15:34.057Z"
     },
     {
       "id": "87cafc2df01d42318ae7dc6aef4d16ed4ef715df",
@@ -111,7 +111,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.252Z"
+      "scrapedAt": "2026-09-27T12:15:35.350Z"
     },
     {
       "id": "245fed22769721fab2213fa06f703cf215018503",
@@ -127,7 +127,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.815Z"
+      "scrapedAt": "2026-09-27T12:15:34.903Z"
     },
     {
       "id": "7f12a679bc1b21104adcd064e83dca2d86f8a9c5",
@@ -143,7 +143,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.300Z"
+      "scrapedAt": "2026-09-27T12:15:35.366Z"
     },
     {
       "id": "8ba974a0566b460e7452ce3a27a738a08298531d",
@@ -159,7 +159,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.112Z"
+      "scrapedAt": "2026-09-27T12:15:35.141Z"
     },
     {
       "id": "caf4208d9fb4a71929d73fadcaf182126f2ed28d",
@@ -175,7 +175,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.578Z"
+      "scrapedAt": "2026-09-27T12:15:34.598Z"
     },
     {
       "id": "312d8a196798d2dcebd41a8adace78960b67ea42",
@@ -191,7 +191,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.278Z"
+      "scrapedAt": "2026-09-27T12:15:35.406Z"
     },
     {
       "id": "a3cd6f94988250c5d227379bb93a454b6e2facd7",
@@ -207,7 +207,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.774Z"
+      "scrapedAt": "2026-09-27T12:15:34.935Z"
     },
     {
       "id": "a664d06d9f839b25172910eac89a4f5a25d55a18",
@@ -223,7 +223,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.284Z"
+      "scrapedAt": "2026-09-27T12:15:34.370Z"
     },
     {
       "id": "997871b030cc47d0fa4fef409384bba15a89b391",
@@ -239,7 +239,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.358Z"
+      "scrapedAt": "2026-09-27T12:15:34.274Z"
     },
     {
       "id": "5ab57ec935a5d02cc7325ce9cf1cb6958f6ef553",
@@ -255,7 +255,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.097Z"
+      "scrapedAt": "2026-09-27T12:15:35.160Z"
     },
     {
       "id": "27ca68ab839df3a43df8b5158bf99a4bb317b318",
@@ -271,7 +271,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.548Z"
+      "scrapedAt": "2026-09-27T12:15:34.540Z"
     },
     {
       "id": "3da9e50ef7ff017604a509716dcdce269332a6bd",
@@ -287,7 +287,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.471Z"
+      "scrapedAt": "2026-09-27T12:15:35.642Z"
     },
     {
       "id": "ae9899a5451650fd63f12db681edfc4ea5721039",
@@ -303,7 +303,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.334Z"
+      "scrapedAt": "2026-09-27T12:15:35.466Z"
     },
     {
       "id": "ba168381054daecd8d50b400bbfc7a2a361dc76f",
@@ -319,7 +319,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-12-13",
       "dateLabel": "27 Set 13 Dez 2026",
-      "scrapedAt": "2026-09-27T11:08:56.313Z"
+      "scrapedAt": "2026-09-27T12:15:34.299Z"
     },
     {
       "id": "4d59b8e0a1fee6b3e67e0fadcbc1b4c5657aca17",
@@ -335,7 +335,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.257Z"
+      "scrapedAt": "2026-09-27T12:15:34.327Z"
     },
     {
       "id": "a9a7a1c00c8c625562917d19b0c30ab093892d61",
@@ -351,7 +351,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.565Z"
+      "scrapedAt": "2026-09-27T12:15:34.615Z"
     },
     {
       "id": "5095e04284487dd9ff4743ff3e0d613c33038970",
@@ -367,7 +367,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.044Z"
+      "scrapedAt": "2026-09-27T12:15:35.180Z"
     },
     {
       "id": "ec0ef8d8f513c810ebcb0bb57b11b8677ac3e202",
@@ -383,7 +383,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.064Z"
+      "scrapedAt": "2026-09-27T12:15:35.103Z"
     },
     {
       "id": "0f25ddbb8c24b1e2a78a24bd4eee408a6322935f",
@@ -399,7 +399,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.510Z"
+      "scrapedAt": "2026-09-27T12:15:34.580Z"
     },
     {
       "id": "955cc5d89bd66c730093ead6ddbd34d0846c8764",
@@ -415,7 +415,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.313Z"
+      "scrapedAt": "2026-09-27T12:15:35.442Z"
     },
     {
       "id": "d72a0c5d81878db99897b72df76e53ad94d61779",
@@ -431,7 +431,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.601Z"
+      "scrapedAt": "2026-09-27T12:15:34.648Z"
     },
     {
       "id": "1dcdb6a857fbd220e83da11b12fc1a743e4dc0d7",
@@ -447,7 +447,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:57.075Z"
+      "scrapedAt": "2026-09-27T12:15:35.121Z"
     },
     {
       "id": "39b9c776e8e6760d871a08fa042d379c105f1037",
@@ -463,7 +463,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.750Z"
+      "scrapedAt": "2026-09-27T12:15:34.953Z"
     },
     {
       "id": "4cbff1ba9d22a75960c383967b90286a86bddf47",
@@ -479,7 +479,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.859Z"
+      "scrapedAt": "2026-09-27T12:15:34.815Z"
     },
     {
       "id": "ce4013faaf207659b9d6b3eedfa932d3da7f65f7",
@@ -495,7 +495,7 @@
       "startDate": "2026-09-27",
       "endDate": "2026-09-27",
       "dateLabel": "27 Set",
-      "scrapedAt": "2026-09-27T11:08:56.837Z"
+      "scrapedAt": "2026-09-27T12:15:34.797Z"
     },
     {
       "id": "4dfd4c7266d806dd42d4614fe3659b5deb38e009",
@@ -511,7 +511,7 @@
       "startDate": "2026-09-28",
       "endDate": "2026-10-26",
       "dateLabel": "28 Set 26 Out 2026",
-      "scrapedAt": "2026-09-27T11:08:57.494Z"
+      "scrapedAt": "2026-09-27T12:15:35.674Z"
     },
     {
       "id": "841f7d6b4f16054a66fabe087671815292329e89",
@@ -527,7 +527,7 @@
       "startDate": "2026-09-28",
       "endDate": "2026-09-28",
       "dateLabel": "28 Set",
-      "scrapedAt": "2026-09-27T11:08:57.536Z"
+      "scrapedAt": "2026-09-27T12:15:35.607Z"
     },
     {
       "id": "15c836480e31353113f026a69f0f8f491c408c48",
@@ -543,7 +543,7 @@
       "startDate": "2026-09-28",
       "endDate": "2026-09-28",
       "dateLabel": "28 Set",
-      "scrapedAt": "2026-09-27T11:08:57.573Z"
+      "scrapedAt": "2026-09-27T12:15:35.653Z"
     },
     {
       "id": "dc8c0933db975e964b132ff98d605cc779826790",
@@ -559,7 +559,7 @@
       "startDate": "2026-09-28",
       "endDate": "2026-09-28",
       "dateLabel": "28 Set",
-      "scrapedAt": "2026-09-27T11:08:57.518Z"
+      "scrapedAt": "2026-09-27T12:15:35.630Z"
     },
     {
       "id": "3f1e128b527cdce8be5f8493e919598183822044",
@@ -575,7 +575,7 @@
       "startDate": "2026-09-28",
       "endDate": "2026-09-28",
       "dateLabel": "28 Set",
-      "scrapedAt": "2026-09-27T11:08:57.758Z"
+      "scrapedAt": "2026-09-27T12:15:35.880Z"
     },
     {
       "id": "3ccef1049ce6641b2bf7acfc016035c87b17f66d",
@@ -591,7 +591,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-11-07",
       "dateLabel": "29 Set 07 Nov 2026",
-      "scrapedAt": "2026-09-27T11:08:57.739Z"
+      "scrapedAt": "2026-09-27T12:15:35.895Z"
     },
     {
       "id": "c160378811756de906144322410d3a281f528ca9",
@@ -607,7 +607,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.715Z"
+      "scrapedAt": "2026-09-27T12:15:35.868Z"
     },
     {
       "id": "e975199924745de8e67d97a19fafb337e2bdfc7f",
@@ -623,7 +623,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:58.199Z"
+      "scrapedAt": "2026-09-27T12:15:36.665Z"
     },
     {
       "id": "e98fd73e5b73e9cd4ea0e8e797cbb45e8ca70d64",
@@ -639,7 +639,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:58.176Z"
+      "scrapedAt": "2026-09-27T12:15:36.739Z"
     },
     {
       "id": "9c0433efb1555320009cdc7782360b02bf713e03",
@@ -655,7 +655,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.794Z"
+      "scrapedAt": "2026-09-27T12:15:35.838Z"
     },
     {
       "id": "06396293d0bd21f262254c3a548fcaef91ade148",
@@ -671,7 +671,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.966Z"
+      "scrapedAt": "2026-09-27T12:15:36.333Z"
     },
     {
       "id": "fb43f0a0d3a3b8f19457b0d3981c60adbc083620",
@@ -687,7 +687,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.781Z"
+      "scrapedAt": "2026-09-27T12:15:35.818Z"
     },
     {
       "id": "f68953aafc1a0ab73674a75c3598a9b1b92c27fb",
@@ -703,7 +703,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.987Z"
+      "scrapedAt": "2026-09-27T12:15:36.222Z"
     },
     {
       "id": "eeef50c62eacbe71ad0faf03dbaac16a91924c29",
@@ -719,7 +719,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:58.030Z"
+      "scrapedAt": "2026-09-27T12:15:36.107Z"
     },
     {
       "id": "4a1c77c20fd95f599627cf3a272ca423dc6a5dcc",
@@ -735,7 +735,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:57.930Z"
+      "scrapedAt": "2026-09-27T12:15:36.166Z"
     },
     {
       "id": "563ca4960e601cfad1708df6683ba95a98fcf535",
@@ -751,7 +751,7 @@
       "startDate": "2026-09-29",
       "endDate": "2026-09-29",
       "dateLabel": "29 Set",
-      "scrapedAt": "2026-09-27T11:08:58.001Z"
+      "scrapedAt": "2026-09-27T12:15:36.198Z"
     },
     {
       "id": "6093eec04c87bdfc3c84e6b768c0e24dba87e3b2",
@@ -767,7 +767,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.420Z"
+      "scrapedAt": "2026-09-27T12:15:36.926Z"
     },
     {
       "id": "69713ece3c6eb321e0e2ba5968e7940bf4816299",
@@ -783,7 +783,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.684Z"
+      "scrapedAt": "2026-09-27T12:15:37.097Z"
     },
     {
       "id": "dab0ae264ec1795b633ba66de7d1e9d520861efc",
@@ -799,7 +799,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.738Z"
+      "scrapedAt": "2026-09-27T12:15:37.209Z"
     },
     {
       "id": "4a2535bea103026cef325d329cfdeb8099439d96",
@@ -815,7 +815,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.513Z"
+      "scrapedAt": "2026-09-27T12:15:36.902Z"
     },
     {
       "id": "3fbb2897b21ce1426e7e08ab5571536d89ac783e",
@@ -831,7 +831,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.226Z"
+      "scrapedAt": "2026-09-27T12:15:36.527Z"
     },
     {
       "id": "435e1a9b1ca1c828016c807f9b8acd90a80b41bb",
@@ -847,7 +847,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.489Z"
+      "scrapedAt": "2026-09-27T12:15:36.948Z"
     },
     {
       "id": "cadc32f9b7208dc71ef025d1a57a91a7700c520b",
@@ -863,7 +863,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.655Z"
+      "scrapedAt": "2026-09-27T12:15:37.128Z"
     },
     {
       "id": "020b393aac50260924bda7fb43fa4f27f62e7bfc",
@@ -879,7 +879,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.439Z"
+      "scrapedAt": "2026-09-27T12:15:36.961Z"
     },
     {
       "id": "5865884da8edf1350821bfec13b4dc49fe47c750",
@@ -895,7 +895,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.261Z"
+      "scrapedAt": "2026-09-27T12:15:36.710Z"
     },
     {
       "id": "0ce142cf02b493658f64efb978a9f187f59ab99c",
@@ -911,7 +911,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.456Z"
+      "scrapedAt": "2026-09-27T12:15:36.879Z"
     },
     {
       "id": "40e23adb7ab05a4a816c8eea0b3ae0227b8a319a",
@@ -927,7 +927,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.714Z"
+      "scrapedAt": "2026-09-27T12:15:37.144Z"
     },
     {
       "id": "69e381494b7ba76e3e23ad37dbd6ecc4f68da349",
@@ -943,7 +943,7 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.699Z"
+      "scrapedAt": "2026-09-27T12:15:37.165Z"
     },
     {
       "id": "f3cb8a34a0097656319a1b174b3ebe9b0d8adc19",
@@ -959,7 +959,167 @@
       "startDate": "2026-09-30",
       "endDate": "2026-09-30",
       "dateLabel": "30 Set",
-      "scrapedAt": "2026-09-27T11:08:58.241Z"
+      "scrapedAt": "2026-09-27T12:15:36.619Z"
+    },
+    {
+      "id": "demo-elderly-001",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Memorias do Porto em Fotografia",
+      "description": "Exposicao comentada com historias da cidade e visita guiada tranquila",
+      "venue": "Museu do Porto",
+      "category": "Cultura",
+      "url": "https://demo.portoevents.local/eventos/memorias-do-porto",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-01",
+      "endDate": "2026-10-15",
+      "dateLabel": "01 Out 15 Out 2026",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-002",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Tardes de Fado Classico",
+      "description": "Concerto de fado em volume moderado com lugares sentados",
+      "venue": "Casa da Musica",
+      "category": "Musica",
+      "url": "https://demo.portoevents.local/eventos/tardes-de-fado-classico",
+      "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "dateLabel": "03 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-003",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Cinema de Ouro Portugues",
+      "description": "Sessao de cinema classico com conversa apos o filme",
+      "venue": "Cinema Trindade",
+      "category": "Cinema",
+      "url": "https://demo.portoevents.local/eventos/cinema-de-ouro-portugues",
+      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-05",
+      "endDate": "2026-10-05",
+      "dateLabel": "05 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-004",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Atelier de Aguarela para Iniciantes",
+      "description": "Oficina criativa de aguarela com ritmo calmo e apoio individual",
+      "venue": "Biblioteca Municipal Almeida Garrett",
+      "category": "Arte",
+      "url": "https://demo.portoevents.local/eventos/atelier-aguarela-iniciantes",
+      "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-08",
+      "dateLabel": "08 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-005",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Recital de Piano e Cordas",
+      "description": "Recital classico com obras conhecidas e pausa para cafe",
+      "venue": "Museu Romantico",
+      "category": "Musica",
+      "url": "https://demo.portoevents.local/eventos/recital-piano-cordas",
+      "image": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "dateLabel": "10 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-006",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Visita Guiada ao Museu do Azulejo",
+      "description": "Visita cultural em percurso curto sobre patrimonio e historia local",
+      "venue": "Museu do Azulejo",
+      "category": "Patrimonio",
+      "url": "https://demo.portoevents.local/eventos/visita-patrimonio-azulejar",
+      "image": "https://images.pexels.com/photos/34930567/pexels-photo-34930567.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "startDate": "2026-10-12",
+      "endDate": "2026-10-12",
+      "dateLabel": "12 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-007",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Coro de Cancoes Tradicionais",
+      "description": "Encontro musical com cancioneiro portugues e participacao do publico",
+      "venue": "Fonoteca Municipal do Porto",
+      "category": "Musica",
+      "url": "https://demo.portoevents.local/eventos/coro-cancoes-tradicionais",
+      "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "dateLabel": "14 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-008",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Passeio Cultural Ribeira Antiga",
+      "description": "Passeio leve com guia local por ruas historicas e paragens para descanso",
+      "venue": "Praca da Ribeira",
+      "category": "Patrimonio",
+      "url": "https://demo.portoevents.local/eventos/passeio-cultural-ribeira-antiga",
+      "image": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-16",
+      "dateLabel": "16 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-009",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Leitura em Voz Alta no Jardim",
+      "description": "Sessao de leitura partilhada de contos curtos com ambiente tranquilo",
+      "venue": "Jardins do Palacio de Cristal",
+      "category": "Literatura",
+      "url": "https://demo.portoevents.local/eventos/leitura-voz-alta-jardim",
+      "image": "https://images.pexels.com/photos/14494693/pexels-photo-14494693.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-18",
+      "dateLabel": "18 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
+    },
+    {
+      "id": "demo-elderly-010",
+      "sourceId": "demo-elderly",
+      "sourceName": "Demo Curated Events",
+      "city": "Porto",
+      "title": "Museu e Cafe da Manha Classico",
+      "description": "Visita livre ao museu seguida de convivo com cafe e pastelaria",
+      "venue": "Museu Nacional Soares dos Reis",
+      "category": "Cultura",
+      "url": "https://demo.portoevents.local/eventos/museu-cafe-manha-classico",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=60",
+      "startDate": "2026-10-20",
+      "endDate": "2026-10-20",
+      "dateLabel": "20 Out",
+      "scrapedAt": "2026-09-27T12:20:00.000Z"
     }
   ]
 }

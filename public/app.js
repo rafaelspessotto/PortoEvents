@@ -56,6 +56,48 @@ let visibleEventsCount = 8;
 const geoCache = readGeoCache();
 
 const EVENTS_PAGE_SIZE = 8;
+const DEMO_ELDERLY_SOURCE_ID = "demo-elderly";
+const DEMO_DISABLE_REFRESH = true;
+
+const ELDERLY_INCLUDE_KEYWORDS = [
+  "exposi",
+  "museu",
+  "galeria",
+  "teatro",
+  "concerto",
+  "recital",
+  "classica",
+  "fado",
+  "jazz",
+  "cinema",
+  "filme",
+  "oficina",
+  "workshop",
+  "patrimonio",
+  "cultural",
+  "aguarela",
+  "ceramica",
+  "pintura",
+  "coro",
+  "orquestra",
+  "visita guiada",
+];
+
+const ELDERLY_EXCLUDE_KEYWORDS = [
+  "dj",
+  "clubbing",
+  "rave",
+  "after party",
+  "noturna",
+  "corrida",
+  "cycling",
+  "crossfit",
+  "fight",
+  "polo aquatico",
+  "hidroginastica",
+  "meia maratona",
+  "noite academica",
+];
 
 function readUsers() {
   const raw = localStorage.getItem(USERS_KEY);
@@ -124,7 +166,20 @@ function persistGeoCache() {
 }
 
 function normalizeText(value) {
-  return (value || "").toLowerCase();
+  return (value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function isElderlyFriendlyEvent(event) {
+  const text = normalizeText(`${event.title} ${event.category} ${event.description} ${event.venue}`);
+
+  if (ELDERLY_EXCLUDE_KEYWORDS.some((key) => text.includes(key))) {
+    return false;
+  }
+
+  return ELDERLY_INCLUDE_KEYWORDS.some((key) => text.includes(key));
 }
 
 function eventMatchesPreference(event, preferenceId) {
@@ -244,7 +299,7 @@ function renderMapCategories() {
 }
 
 function filterEvents() {
-  let list = [...payload.events];
+  let list = payload.events.filter((event) => event.sourceId === DEMO_ELDERLY_SOURCE_ID);
   const search = normalizeText(searchInputEl.value);
 
   if (search) {
@@ -390,6 +445,7 @@ async function loadEvents() {
 }
 
 async function refreshEvents() {
+  if (DEMO_DISABLE_REFRESH) return;
   refreshBtn.disabled = true;
   try {
     await fetch("/api/events/refresh", { method: "POST" });
@@ -532,6 +588,11 @@ onlyPreferredEl.addEventListener("change", () => {
 });
 
 refreshBtn.addEventListener("click", refreshEvents);
+
+if (DEMO_DISABLE_REFRESH) {
+  refreshBtn.disabled = true;
+  refreshBtn.title = "Refresh disabled for demo mode";
+}
 
 mapCategoriesEl.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-cat]");

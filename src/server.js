@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, "..", "public");
 const MAIN_DIR = path.join(PUBLIC_DIR, "main");
 const AUTO_REFRESH_MS = 10 * 60 * 1000;
+const DEMO_DISABLE_REFRESH = true;
 
 let refreshInFlight = false;
 
@@ -46,6 +47,11 @@ function filterByDate(events, date) {
 }
 
 async function runScheduledRefresh(trigger) {
+  if (DEMO_DISABLE_REFRESH) {
+    console.log(`[auto-refresh] Skipped via ${trigger}; demo mode is enabled`);
+    return;
+  }
+
   if (refreshInFlight) {
     console.log(`[auto-refresh] Ignored ${trigger}; refresh already in progress`);
     return;
@@ -66,6 +72,8 @@ async function runScheduledRefresh(trigger) {
 }
 
 function startAutoRefresh() {
+  if (DEMO_DISABLE_REFRESH) return;
+
   setInterval(() => {
     runScheduledRefresh("interval");
   }, AUTO_REFRESH_MS);
@@ -136,6 +144,10 @@ app.get("/api/events", async (req, res) => {
 });
 
 app.post("/api/events/refresh", async (req, res) => {
+  if (DEMO_DISABLE_REFRESH) {
+    return res.status(403).json({ error: "Refresh disabled for demo mode" });
+  }
+
   try {
     const payload = await scrapeAllEnabledSources();
     res.json({

@@ -1,0 +1,24 @@
+{
+  "name": "portoevents",
+  "version": "1.0.0",
+  "description": "Agregador de eventos do Porto com scraping e armazenamento em JSON",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "svc:start": "npm start",
+    "svc:stop": "bash -lc 'pids=$(lsof -ti tcp:3000); if [ -n \"$pids\" ]; then kill $pids && echo \"Servico parado (PID: $pids)\"; else echo \"Servico ja estava parado\"; fi'",
+    "svc:status": "bash -lc 'curl -fsS --max-time 3 http://localhost:3000/api/health >/dev/null && echo \"Servico online\" || echo \"Servico offline\"'",
+    "refresh": "node -e \"fetch('http://localhost:3000/api/events/refresh',{method:'POST'}).then(r=>r.json()).then(console.log).catch(console.error)\"",
+    "test": "echo \"Sem testes automatizados ainda\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.20.0",
+    "cheerio": "^1.2.0",
+    "dayjs": "^1.11.23",
+    "express": "^5.2.1",
+    "puppeteer-core": "^25.12.0"
+  }
+}

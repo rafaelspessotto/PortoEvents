@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ReConnect — help your parent's world grow again</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Schibsted+Grotesk:wght@400;500;600&amp;display=swap">
+<style>
+  body { margin: 0; background: #F4F1E8; }
+  a { color: #16302B; text-decoration: none; }
+  a:hover { color: #2E5E43; }
+  ::selection { background: #B7C9B1; }
+  input::placeholder { color: #7E8A80; }
+  .rc-cta { cursor: pointer; border: none; font-family: 'Schibsted Grotesk', system-ui, sans-serif; transition: transform 0.12s ease, background 0.12s ease; }
+  .rc-cta:hover { transform: translateY(-1px); }
+  .rc-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .rc-h { text-wrap: balance; }
+  .rc-p { text-wrap: pretty; }
+  @keyframes rc-slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .rc-track { animation: rc-slide 60s linear infinite; }
+  .rc-track:hover { animation-play-state: paused; }
+  .rc-track a:hover { border-color: #2E5E43; background: #FFFFFF; }
+  .rc-medal { position: absolute; top: 6px; left: 10px; z-index: 1; transform-origin: 50% 0; animation: rc-swing 3.6s ease-in-out infinite; filter: drop-shadow(0 6px 8px rgba(0,0,0,0.45)); }
+  @media (max-width: 720px) { .rc-step-art { grid-column: 2; justify-content: flex-start !important; margin-top: 16px; } }
+  @keyframes rc-swing { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(5deg); } }
+  @media (prefers-reduced-motion: reduce) { .rc-track { animation: none; } .rc-medal { animation: none; transform: rotate(-4deg); } }
+</style>
+</helmet>
+
+<div style="width: 100%; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Schibsted Grotesk', system-ui, sans-serif; color: #1C231F; background: #F4F1E8; overflow-x: hidden;">
+
+  <!-- ===== DARK HERO ===== -->
+  <div style="width: 100%; background: #16302B; color: #F4F1E8;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 28px clamp(20px, 5vw, 64px) 0; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; align-items: baseline; gap: 6px;">
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; letter-spacing: -0.01em;">Re</span><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 30px; color: #B7C9B1; letter-spacing: -0.01em;">connect</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: clamp(16px, 3vw, 36px);">
+        <a href="#how" class="rc-link" style="font-size: 15px; color: #B7C9B1;">How it works</a>
+        <a href="#price" class="rc-link" style="font-size: 15px; color: #B7C9B1;">Price</a>
+        <a href="/app" class="rc-link" style="font-size: 15px; color: #B7C9B1;">Sign Up</a>
+        <a href="#waitlist" class="rc-cta" style="display: inline-block; background: #F4F1E8; color: #16302B; padding: 12px 20px; font-size: 15px; font-weight: 600; border-radius: 2px;">Get the first list</a>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 64px) 0; display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 72px); align-items: flex-end;">
+      <div style="flex: 1 1 520px; min-width: 280px; display: flex; flex-direction: column; gap: 28px; padding-bottom: clamp(64px, 9vw, 120px);">
+        <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #B7C9B1;">For sons and daughters of retired parents · Porto</div>
+        <h1 class="rc-h" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.6vw, 80px); line-height: 1.02; letter-spacing: -0.02em; color: #F4F1E8;">
+          “What did you do this week?” “Same as last week.” <em style="font-style: italic; color: #B7C9B1;">Let’s change the answer.</em>
+        </h1>
+        <p class="rc-p" style="margin: 0; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: #D9E0D4; max-width: 540px;">
+          Tell us about your parent in a 15-minute chat. Each month we send you a short list of local things picked for them: a choir, a walk, a card table, a class. You pass it on. They go. The next list gets closer.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 8px;">
+          <a href="#waitlist" class="rc-cta" style="display: inline-block; background: #D89B3D; color: #16302B; padding: 18px 30px; font-size: 17px; font-weight: 600; border-radius: 2px;">Get their first list free</a>
+          <span style="font-size: 14px; color: #8FA593;">No card. Cancel by replying to an email.</span>
+        </div>
+      </div>
+
+      <!-- The letter: overlaps into the cream section -->
+      <div style="flex: 0 1 420px; min-width: 300px; display: flex; justify-content: center; margin-bottom: -96px; position: relative; z-index: 2;">
+        <div style="width: 100%; max-width: 420px; background: #FBFAF5; color: #1C231F; padding: 36px 34px 30px; box-shadow: 0 1px 0 #E6E2D4, 0 30px 60px -30px rgba(0,0,0,0.55), 0 12px 24px -16px rgba(0,0,0,0.35); border-radius: 2px; display: flex; flex-direction: column; gap: 22px; transform: rotate(-1.2deg);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #1C231F; padding-bottom: 14px;">
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 30px; line-height: 1;">November</div>
+            <div style="font-size: 13px; color: #5F6B62;">for Fernanda · month 3</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px;">
+              <div style="font-size: 13px; font-weight: 600; color: #2E5E43; padding-top: 3px;">Thu 6</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 16px; font-weight: 500;">Thursday sing-along, Junta de Bonfim</div>
+                <div style="font-size: 13.5px; color: #5F6B62;">17:00 · free · 6 min from her door</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px;">
+              <div style="font-size: 13px; font-weight: 600; color: #2E5E43; padding-top: 3px;">Sat 8</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 16px; font-weight: 500;">Portuguese guitar recital, Casa da Guitarra</div>
+                <div style="font-size: 13.5px; color: #5F6B62;">18:00 · €8 · we can book it</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px;">
+              <div style="font-size: 13px; font-weight: 600; color: #2E5E43; padding-top: 3px;">Tue 11</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 16px; font-weight: 500;">Short walk that ends at Café Progresso</div>
+                <div style="font-size: 13.5px; color: #5F6B62;">10:30 · 30 min, flat · the group she met in October</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px;">
+              <div style="font-size: 13px; font-weight: 600; color: #2E5E43; padding-top: 3px;">Wed 19</div>
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 16px; font-weight: 500;">Fado open night, Taberna do Bonfim</div>
+                <div style="font-size: 13.5px; color: #5F6B62;">16:30 · free · afternoon session, she said no to evenings</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="border-top: 1px dashed #C9C5B6; padding-top: 14px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 16px; line-height: 1.4; color: #3F4A43;">
+            She went to the choir twice and skipped both card afternoons. So: more music, no cards, and a walk with the people she already met.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DID YOU KNOW: NEXT WEEK ===== -->
+  <div style="width: 100%; background: #F4F1E8; overflow: hidden;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(140px, 16vw, 200px) clamp(20px, 5vw, 64px) 36px; display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 80px); align-items: flex-end;">
+      <div style="flex: 0 0 200px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2E5E43; padding-bottom: 10px;">Launching in Porto · October 2026</div>
+      <div style="flex: 1 1 480px; min-width: 280px; display: flex; flex-direction: column; gap: 14px;">
+        <h2 class="rc-h" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.05; letter-spacing: -0.015em; color: #16302B;">
+          Did you know that this October, in Porto, <em style="font-style: italic; color: #2E5E43;">all of this is happening?</em>
+        </h2>
+        <p class="rc-p" style="margin: 0; font-size: 17px; line-height: 1.55; color: #5F6B62; max-width: 560px;">Real listings — a free outdoor concert, guided walks, a Sunday morning with the museum's curator, the Saturday market, afternoon cards in the square, painting, music and dance classes made for retired people. Most of it is free. Almost none of it will reach your parent on its own.</p>
+      </div>
+    </div>
+
+    <div style="width: 100%; padding: 8px 0 clamp(72px, 8vw, 112px);">
+      <div class="rc-track" style="display: flex; gap: 16px; width: max-content; padding-left: 16px;">
+        <sc-for list="{{events}}" as="ev" hint-placeholder-count="12">
+          <a href="{{ev.url}}" target="_blank" rel="noopener" style="width: 290px; flex-shrink: 0; background: #FBFAF5; border: 1px solid #DDD9CB; padding: 0 0 18px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box; color: #1C231F; overflow: hidden;">
+            <div style="position: relative; width: 100%; height: 150px;">
+              <img src="{{ev.img}}" alt="" style="width: 100%; height: 150px; object-fit: cover; object-position: {{ev.pos}}; display: block;">
+              <sc-if value="{{ev.isGrandkids}}" hint-placeholder-val="{{false}}">
+                <svg class="rc-medal" width="64" height="81" viewBox="0 0 80 101" role="img" aria-label="with the grandkids"><polygon points="24,56 13,98 24,90 33,99 40,60" fill="#8FA593"></polygon><polygon points="56,56 67,98 56,90 47,99 40,60" fill="#B7C9B1"></polygon><polygon points="40.0,2.0 44.4,6.3 49.8,3.3 53.0,8.6 59.0,7.1 60.7,13.0 66.9,13.1 67.0,19.3 72.9,21.0 71.4,27.0 76.7,30.2 73.7,35.6 78.0,40.0 73.7,44.4 76.7,49.8 71.4,53.0 72.9,59.0 67.0,60.7 66.9,66.9 60.7,67.0 59.0,72.9 53.0,71.4 49.8,76.7 44.4,73.7 40.0,78.0 35.6,73.7 30.2,76.7 27.0,71.4 21.0,72.9 19.3,67.0 13.1,66.9 13.0,60.7 7.1,59.0 8.6,53.0 3.3,49.8 6.3,44.4 2.0,40.0 6.3,35.6 3.3,30.2 8.6,27.0 7.1,21.0 13.0,19.3 13.1,13.1 19.3,13.0 21.0,7.1 27.0,8.6 30.2,3.3 35.6,6.3" fill="#D89B3D"></polygon><circle cx="40" cy="40" r="29" fill="#F4F1E8"></circle><circle cx="40" cy="40" r="25.5" fill="none" stroke="#D89B3D" stroke-width="1.2" stroke-dasharray="2.5 2.5"></circle><text x="40" y="37" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="11" fill="#2E5E43">with the</text><text x="40" y="51" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="12.5" fill="#16302B">grandkids</text></svg>
+              </sc-if>
+              <sc-if value="{{ev.isFriends}}" hint-placeholder-val="{{false}}">
+                <svg class="rc-medal" width="64" height="81" viewBox="0 0 80 101" role="img" aria-label="make new friends"><polygon points="24,56 13,98 24,90 33,99 40,60" fill="#16302B"></polygon><polygon points="56,56 67,98 56,90 47,99 40,60" fill="#D89B3D"></polygon><polygon points="40.0,2.0 44.4,6.3 49.8,3.3 53.0,8.6 59.0,7.1 60.7,13.0 66.9,13.1 67.0,19.3 72.9,21.0 71.4,27.0 76.7,30.2 73.7,35.6 78.0,40.0 73.7,44.4 76.7,49.8 71.4,53.0 72.9,59.0 67.0,60.7 66.9,66.9 60.7,67.0 59.0,72.9 53.0,71.4 49.8,76.7 44.4,73.7 40.0,78.0 35.6,73.7 30.2,76.7 27.0,71.4 21.0,72.9 19.3,67.0 13.1,66.9 13.0,60.7 7.1,59.0 8.6,53.0 3.3,49.8 6.3,44.4 2.0,40.0 6.3,35.6 3.3,30.2 8.6,27.0 7.1,21.0 13.0,19.3 13.1,13.1 19.3,13.0 21.0,7.1 27.0,8.6 30.2,3.3 35.6,6.3" fill="#8FA593"></polygon><circle cx="40" cy="40" r="29" fill="#F4F1E8"></circle><circle cx="40" cy="40" r="25.5" fill="none" stroke="#8FA593" stroke-width="1.2" stroke-dasharray="2.5 2.5"></circle><text x="40" y="37" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="11" fill="#2E5E43">make new</text><text x="40" y="51" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="12.5" fill="#16302B">friends</text></svg>
+              </sc-if>
+              <sc-if value="{{ev.isWalkin}}" hint-placeholder-val="{{false}}">
+                <svg class="rc-medal" width="64" height="81" viewBox="0 0 80 101" role="img" aria-label="just turn up, no booking"><polygon points="24,56 13,98 24,90 33,99 40,60" fill="#D89B3D"></polygon><polygon points="56,56 67,98 56,90 47,99 40,60" fill="#16302B"></polygon><polygon points="40.0,2.0 44.4,6.3 49.8,3.3 53.0,8.6 59.0,7.1 60.7,13.0 66.9,13.1 67.0,19.3 72.9,21.0 71.4,27.0 76.7,30.2 73.7,35.6 78.0,40.0 73.7,44.4 76.7,49.8 71.4,53.0 72.9,59.0 67.0,60.7 66.9,66.9 60.7,67.0 59.0,72.9 53.0,71.4 49.8,76.7 44.4,73.7 40.0,78.0 35.6,73.7 30.2,76.7 27.0,71.4 21.0,72.9 19.3,67.0 13.1,66.9 13.0,60.7 7.1,59.0 8.6,53.0 3.3,49.8 6.3,44.4 2.0,40.0 6.3,35.6 3.3,30.2 8.6,27.0 7.1,21.0 13.0,19.3 13.1,13.1 19.3,13.0 21.0,7.1 27.0,8.6 30.2,3.3 35.6,6.3" fill="#C96F4A"></polygon><circle cx="40" cy="40" r="29" fill="#F4F1E8"></circle><circle cx="40" cy="40" r="25.5" fill="none" stroke="#C96F4A" stroke-width="1.2" stroke-dasharray="2.5 2.5"></circle><text x="40" y="37" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="11" fill="#2E5E43">just</text><text x="40" y="51" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-style="italic" font-size="12.5" fill="#16302B">turn up</text></svg>
+              </sc-if>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 4px 20px 0;">
+              <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #2E5E43;">{{ev.kind}}</span>
+              <span style="font-size: 13px; font-weight: 600; color: #16302B;">{{ev.cost}}</span>
+            </div>
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 22px; line-height: 1.15; color: #16302B; padding: 0 20px;">{{ev.title}}</div>
+            <div style="font-size: 14px; color: #5F6B62; padding: 0 20px;">{{ev.when}}</div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <div id="how" style="width: 100%; background: #F4F1E8;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 8vw, 112px); display: flex; flex-direction: column;">
+      <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; border-bottom: 1px solid #16302B; padding-bottom: 20px;">
+        <h2 style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2vw, 44px); letter-spacing: -0.015em; color: #16302B;">How it works</h2>
+        <div style="font-size: 14px; color: #5F6B62;">Fifteen minutes to start. Then it learns on its own.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 0 clamp(16px, 3vw, 40px); padding: 32px 0; border-bottom: 1px solid #CFCBBD;">
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; color: #2E5E43; align-self: start;">01</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+          <div style="font-size: 22px; font-weight: 500; color: #16302B;">We get to know them</div>
+          <p class="rc-p" style="margin: 0; font-size: 16.5px; line-height: 1.55; color: #3F4A43;">A 15-minute chat with you or with them: what they used to love, who they still see, and what’s hard now (stairs, evenings, distance).</p>
+        </div>
+        <div class="rc-step-art" style="display: flex; justify-content: flex-end;"><svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="A profile card with what your parent likes"><rect x="8" y="10" width="204" height="140" rx="4" fill="#FBFAF5" stroke="#DDD9CB"></rect><circle cx="38" cy="42" r="16" fill="#B7C9B1"></circle><circle cx="38" cy="37" r="6" fill="#2E5E43"></circle><path d="M26 52 q12 -12 24 0" fill="#2E5E43"></path><text x="62" y="39" font-family="Instrument Serif, Georgia, serif" font-size="18" fill="#16302B">Fernanda, 74</text><text x="62" y="55" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="10.5" fill="#7E8A80">Bonfim · 15-min chat</text><rect x="22" y="72" width="62" height="22" rx="11" fill="#E6ECDF"></rect><text x="53.0" y="87" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11" fill="#2E5E43">singing</text><rect x="90" y="72" width="50" height="22" rx="11" fill="#E6ECDF"></rect><text x="115.0" y="87" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11" fill="#2E5E43">walks</text><rect x="146" y="72" width="52" height="22" rx="11" fill="#E6ECDF"></rect><text x="172.0" y="87" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11" fill="#2E5E43">fado</text><rect x="22" y="102" width="86" height="22" rx="11" fill="#F6E6CC"></rect><text x="65.0" y="117" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11" fill="#8A5A12">no evenings</text><rect x="114" y="102" width="84" height="22" rx="11" fill="#F6E6CC"></rect><text x="156.0" y="117" text-anchor="middle" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="11" fill="#8A5A12">flat routes</text></svg></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 0 clamp(16px, 3vw, 40px); padding: 32px 0; border-bottom: 1px solid #CFCBBD;">
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; color: #2E5E43; align-self: start;">02</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+          <div style="font-size: 22px; font-weight: 500; color: #16302B;">You get a short list</div>
+          <p class="rc-p" style="margin: 0; font-size: 16.5px; line-height: 1.55; color: #3F4A43;">Five or six real things near their door, with the details a listing leaves out: cost, steps, time of day, whether anyone will say hello.</p>
+        </div>
+        <div class="rc-step-art" style="display: flex; justify-content: flex-end;"><svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="A short monthly list"><g transform="rotate(-2 110 80)"><rect x="30" y="8" width="160" height="146" rx="2" fill="#FBFAF5" stroke="#DDD9CB"></rect><text x="44" y="34" font-family="Instrument Serif, Georgia, serif" font-size="18" fill="#16302B">October</text><text x="176" y="34" text-anchor="end" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9" fill="#7E8A80">month 1</text><line x1="44" y1="42" x2="176" y2="42" stroke="#1C231F" stroke-width="1"></line><g transform="translate(44 54)"><text x="0" y="8" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#2E5E43">Thu 2</text><rect x="42" y="0" width="88" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect><rect x="42" y="10" width="50" height="4" rx="2" fill="#7E8A80" opacity="0.6"></rect><text x="0" y="32" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#2E5E43">Sat 4</text><rect x="42" y="24" width="102" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect><rect x="42" y="34" width="58" height="4" rx="2" fill="#7E8A80" opacity="0.6"></rect><text x="0" y="56" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#2E5E43">Tue 7</text><rect x="42" y="48" width="76" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect><rect x="42" y="58" width="42" height="4" rx="2" fill="#7E8A80" opacity="0.6"></rect><text x="0" y="80" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9.5" font-weight="600" fill="#2E5E43">Sun 12</text><rect x="42" y="72" width="94" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect><rect x="42" y="82" width="53" height="4" rx="2" fill="#7E8A80" opacity="0.6"></rect></g></g></svg></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 0 clamp(16px, 3vw, 40px); padding: 32px 0;">
+        <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 44px; line-height: 1; color: #2E5E43; align-self: start;">03</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px;">
+          <div style="font-size: 22px; font-weight: 500; color: #16302B;">It learns</div>
+          <p class="rc-p" style="margin: 0; font-size: 16.5px; line-height: 1.55; color: #3F4A43;">Tell us what they went to and what they skipped; a reply or a tap is enough. By the third month the list fits the person, not the city.</p>
+        </div>
+        <div class="rc-step-art" style="display: flex; justify-content: flex-end;"><svg width="220" height="160" viewBox="0 0 220 160" role="img" aria-label="Went and skipped marks turn into a better list"><rect x="4" y="18" width="88" height="124" rx="2" fill="#FBFAF5" stroke="#DDD9CB"></rect><text x="14" y="38" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9" fill="#7E8A80">what she did</text><g transform="translate(14 52)"><g transform="translate(0 0)"><path d="M0 4 l3.5 3.5 l7 -8" fill="none" stroke="#2E5E43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="16" y="0" width="52" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect></g><g transform="translate(0 20)"><path d="M0 -1 l8 8 M8 -1 l-8 8" fill="none" stroke="#A7AFA6" stroke-width="2" stroke-linecap="round"></path><rect x="16" y="0" width="46" height="6" rx="3" fill="#1C231F" opacity="0.25"></rect></g><g transform="translate(0 40)"><path d="M0 4 l3.5 3.5 l7 -8" fill="none" stroke="#2E5E43" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="16" y="0" width="56" height="6" rx="3" fill="#1C231F" opacity="0.75"></rect></g><g transform="translate(0 60)"><path d="M0 -1 l8 8 M8 -1 l-8 8" fill="none" stroke="#A7AFA6" stroke-width="2" stroke-linecap="round"></path><rect x="16" y="0" width="40" height="6" rx="3" fill="#1C231F" opacity="0.25"></rect></g><g transform="translate(0 80)"><path d="M0 -1 l8 8 M8 -1 l-8 8" fill="none" stroke="#A7AFA6" stroke-width="2" stroke-linecap="round"></path><rect x="16" y="0" width="50" height="6" rx="3" fill="#1C231F" opacity="0.25"></rect></g></g><path d="M100 80 h20" stroke="#D89B3D" stroke-width="2" stroke-linecap="round"></path><path d="M114 74 l7 6 l-7 6" fill="none" stroke="#D89B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><rect x="128" y="18" width="88" height="124" rx="2" fill="#16302B"></rect><text x="138" y="38" font-family="Schibsted Grotesk, system-ui, sans-serif" font-size="9" fill="#B7C9B1">next month</text><g transform="translate(138 52)"><rect x="0" y="0" width="60" height="6" rx="3" fill="#F4F1E8"></rect><rect x="0" y="10" width="36" height="4" rx="2" fill="#8FA593"></rect><rect x="0" y="26" width="52" height="6" rx="3" fill="#F4F1E8"></rect><rect x="0" y="36" width="30" height="4" rx="2" fill="#8FA593"></rect><rect x="0" y="52" width="64" height="6" rx="3" fill="#F4F1E8"></rect><rect x="0" y="62" width="40" height="4" rx="2" fill="#8FA593"></rect></g><path d="M198 112 l2.2 5.8 l5.8 2.2 l-5.8 2.2 l-2.2 5.8 l-2.2 -5.8 l-5.8 -2.2 l5.8 -2.2 z" fill="#D89B3D"></path><path d="M184 104 l1.2 3 l3 1.2 l-3 1.2 l-1.2 3 l-1.2 -3 l-3 -1.2 l3 -1.2 z" fill="#D89B3D"></path></svg></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== IT LEARNS: MONTH 1 vs MONTH 3 ===== -->
+  <div style="width: 100%; background: #B7C9B1; color: #16302B;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 8vw, 112px) clamp(20px, 5vw, 64px); display: flex; flex-direction: column; gap: 40px;">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 80px); align-items: flex-start;">
+        <div style="flex: 0 0 200px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 10px;">It gets to know them</div>
+        <div style="flex: 1 1 480px; min-width: 280px; display: flex; flex-direction: column; gap: 16px;">
+          <h2 class="rc-h" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4vw, 54px); line-height: 1.08; letter-spacing: -0.015em;">
+            Fernanda's first list was a guess. <em style="font-style: italic;">Her third one isn't.</em>
+          </h2>
+          <p class="rc-p" style="margin: 0; font-size: 17px; line-height: 1.55; color: #2A3A31; max-width: 560px;">Two months of "went" and "skipped" tell us more than any form could. Not a directory of everything on in Porto — a shortlist for one specific person.</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <!-- Month 1 -->
+        <div style="background: #F4F1E8; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #16302B; padding-bottom: 10px;">
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px;">September</div>
+            <div style="font-size: 13px; color: #5F6B62;">month 1 · after the interview</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Choir open rehearsal</span><span style="font-weight: 600; color: #2E5E43; white-space: nowrap;">went</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Sueca afternoon</span><span style="color: #8A948C; white-space: nowrap;">skipped</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Riverside walking group</span><span style="font-weight: 600; color: #2E5E43; white-space: nowrap;">went</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Fado night, 21:00</span><span style="color: #8A948C; white-space: nowrap;">skipped — too late</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Ceramics for beginners</span><span style="color: #8A948C; white-space: nowrap;">skipped</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Parish lunch</span><span style="font-weight: 600; color: #2E5E43; white-space: nowrap;">went</span></div>
+          </div>
+        </div>
+        <!-- Month 3 -->
+        <div style="background: #16302B; color: #F4F1E8; padding: 28px; display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #B7C9B1; padding-bottom: 10px;">
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 26px;">November</div>
+            <div style="font-size: 13px; color: #B7C9B1;">month 3 · what we learned</div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Thursday sing-along</span><span style="color: #B7C9B1; white-space: nowrap;">she likes singing</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Guitar recital, 18:00</span><span style="color: #B7C9B1; white-space: nowrap;">music, early</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Walk ending at a café</span><span style="color: #B7C9B1; white-space: nowrap;">same group as before</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px;"><span>Fado, afternoon session</span><span style="color: #B7C9B1; white-space: nowrap;">not after dark</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; font-size: 15px; color: #8FA593;"><span style="text-decoration: line-through;">Cards, crafts</span><span style="white-space: nowrap;">dropped</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== THE SUNDAY CALL ===== -->
+  <div style="width: 100%; background: #F4F1E8;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(72px, 8vw, 112px) clamp(20px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 80px); align-items: flex-start;">
+      <div style="flex: 0 0 200px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2E5E43; padding-top: 10px;">The Sunday call</div>
+      <div style="flex: 1 1 360px; min-width: 280px; display: flex; flex-direction: column; gap: 28px; align-self: center;">
+        <h2 class="rc-h" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4vw, 54px); line-height: 1.08; letter-spacing: -0.015em; color: #16302B;">
+          Same call, <em style="font-style: italic; color: #2E5E43;">different answer.</em>
+        </h2>
+        <p class="rc-p" style="margin: 0; font-size: 18px; line-height: 1.6; color: #3F4A43; max-width: 580px;">
+          The choir she went back to. The man from the walking group who knows her village. The teapot she found at Vandoma. A few months in, the call is full of things you didn’t know about.
+        </p>
+      </div>
+      <figure style="flex: 0 1 320px; min-width: 240px; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+        <img src="./assets/5f28be15d22c30f34242795f7a3ac7bb.jpg" alt="An older woman laughing on a phone call at home" style="width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 30%; display: block; border-radius: 2px; transform: rotate(1.2deg); box-shadow: 0 24px 48px -28px rgba(22,48,43,0.55);">
+        <figcaption style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 18px; line-height: 1.35; color: #3F4A43;">Sunday, 18:40. “I went to the choir again.”</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <!-- ===== PRICE ===== -->
+  <div id="price" style="width: 100%; background: #F4F1E8;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px) clamp(72px, 8vw, 112px); display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 80px); align-items: flex-start; border-top: 1px solid #CFCBBD; padding-top: clamp(48px, 6vw, 80px);">
+      <div style="flex: 0 0 200px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #2E5E43; padding-top: 10px;">Price</div>
+      <div style="flex: 1 1 480px; min-width: 280px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: baseline; gap: 6px;">
+            <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(56px, 7vw, 96px); line-height: 1; letter-spacing: -0.02em; color: #16302B;">[€12]</span>
+            <span style="font-size: 20px; color: #5F6B62;">/ month</span>
+          </div>
+          <div style="font-size: 15px; color: #5F6B62;">One parent. First list free. Stop anytime by replying to an email.</div>
+        </div>
+        <div style="flex: 1 1 260px; min-width: 240px; display: flex; flex-direction: column; gap: 10px; border-left: 1px solid #CFCBBD; padding-left: 28px;">
+          <div class="rc-p" style="font-size: 16px; line-height: 1.55; color: #3F4A43;">Roughly two coffees and two pastéis de nata with them. Except this one happens on the weeks you can't be there.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WAITLIST ===== -->
+  <div id="waitlist" style="width: 100%; background: #16302B; color: #F4F1E8;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: clamp(32px, 5vw, 80px); align-items: flex-start;">
+      <div style="flex: 1 1 420px; min-width: 280px; display: flex; flex-direction: column; gap: 20px;">
+        <h2 class="rc-h" style="margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 76px); line-height: 1; letter-spacing: -0.02em;">
+          Start with <em style="font-style: italic; color: #B7C9B1;">this month.</em>
+        </h2>
+        <p class="rc-p" style="margin: 0; font-size: 17px; line-height: 1.55; color: #D9E0D4; max-width: 460px;">
+          We're starting in Porto with a small group of families. Leave your email and we'll get in touch this week for the short interview.
+        </p>
+      </div>
+
+      <div style="flex: 1 1 380px; min-width: 280px; display: flex; flex-direction: column; gap: 14px; padding-top: 12px;">
+        <sc-if value="{{notSubmitted}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <label for="rc-email" style="font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #B7C9B1;">Your email</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <input id="rc-email" type="email" value="{{email}}" onChange="{{onEmailChange}}" placeholder="you@example.com" style="flex: 1 1 220px; min-width: 200px; padding: 16px 18px; border-radius: 2px; border: 1px solid #3F6B54; font-size: 16px; font-family: 'Schibsted Grotesk', system-ui, sans-serif; background: #1F3D35; color: #F4F1E8; box-sizing: border-box;">
+              <button onClick="{{onSubmit}}" class="rc-cta" style="background: #D89B3D; color: #16302B; padding: 16px 26px; font-size: 16px; font-weight: 600; border-radius: 2px; white-space: nowrap;">Get the first list</button>
+            </div>
+            <sc-if value="{{error}}" hint-placeholder-val="{{false}}">
+              <div style="font-size: 14px; color: #F2C4B0;">{{error}}</div>
+            </sc-if>
+            <div style="font-size: 13.5px; color: #8FA593;">One email a month. Nothing else.</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{submitted}}" hint-placeholder-val="{{false}}">
+          <div style="border: 1px solid #3F6B54; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-family: 'Instrument Serif', Georgia, serif; font-size: 28px; line-height: 1.1;">You're in.</div>
+            <div style="font-size: 15.5px; line-height: 1.5; color: #D9E0D4;">We'll write this week to set up the short interview — about where they live, what they love, and what they can manage. Then their first list.</div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px) 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; border-top: 1px solid #2A4A40; padding-top: 24px; font-size: 13.5px; color: #8FA593;">
+      <div style="display: flex; align-items: baseline; gap: 4px;">
+        <span style="font-family: 'Instrument Serif', Georgia, serif; font-size: 18px; color: #F4F1E8;">Re</span><span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 18px; color: #B7C9B1;">connect</span>
+      </div>
+      <div>Porto, 2026 · hello@[yourdomain]</div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { email: '', submitted: false, error: '' };
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value, error: '' });
+  }
+  handleSubmit() {
+    var email = (this.state.email || '').trim();
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!valid) {
+      this.setState({ error: 'That email doesn’t look right — could you check it?' });
+      return;
+    }
+    this.setState({ submitted: true, error: '' });
+  }
+  renderVals() {
+    // REAL LISTINGS, verified 27 Sept 2026 on the venues' own pages (each card links to its source).
+    // To update: edit this list. Order = order on the strip.
+    // badge: 'grandkids' (with the grandkids), 'friends' (make new friends) or 'walkin' (just turn up); or leave it out.
+    // Each badge is a fixed SVG medal in the card template above (search rc-medal).
+    var week = [
+      { kind: 'Music · outdoors', cost: 'Free', title: 'Street music for World Music Day', when: 'Wed 1 Oct · Casa da Música',
+        url: 'https://casadamusica.com/event/ensemble-estapafurdio/?selected_session=57086',
+        img: './assets/331685bdcf8d1958ae3e3b68e01ea53a.jpg', pos: 'center top' },
+      { kind: 'Puppet theatre', cost: 'Ticketed', badge: 'grandkids', title: 'Puppet festival matinée', when: 'Sat 10 Oct · Teatro Rivoli',
+        url: 'https://www.teatromunicipaldoporto.pt/pt/programa/maribor-puppet-theatre-transport-cargo/',
+        img: './assets/05a77199f75209c86d7a1d8f5e77c9cf.jpg', pos: 'center bottom' },
+      { kind: 'Guided walk', cost: 'Free', title: 'Along the old river wall', when: 'Thu 15 Oct · Ribeira',
+        url: 'https://museudoporto.pt/en/recurso/resgate-47-muralha-cidade-e-rio-permanencias-e-transformacoes-entre-o-muro-dos-bacalhoeiros-e-a-rua-de-cimo-de-muro/',
+        img: './assets/988e63279f10aab4ebd86c0b039043bc.jpg' },
+      { kind: 'Museum talk', cost: 'Free', title: 'Museum objects and their stories', when: 'Sun 18 Oct · Casa do Infante',
+        url: 'https://museudoporto.pt/en/recurso/o-que-esta-guardado-nao-esta-esquecido-3/',
+        img: './assets/8cad97ffce2639994a1c45c8dba03127.jpg' },
+      { kind: 'Nature · guided', cost: '€6 over 65', title: 'Treetop Walk tour', when: 'Sat 24 Oct · Serralves',
+        url: 'https://www.serralves.pt/en/atividades-serralves/2410-visita-guiada-ao-treetop-walk/',
+        img: './assets/f64025c087419f1c1b937ca73b8464b5.jpg' },
+      { kind: 'Plants · guided', cost: 'Free', title: 'Botanical visit', when: 'Sun 25 Oct · Arqueossítio, Sé',
+        url: 'https://museudoporto.pt/en/recurso/visita-botanica-2/',
+        img: './assets/abd1f266ca315ba8365329be1010df92.jpg' },
+      { kind: 'Market', cost: 'Free', badge: 'walkin', title: 'Feira da Vandoma flea market', when: 'Every Saturday · Campanhã',
+        url: 'https://pt.wikipedia.org/wiki/Feira_da_Vandoma',
+        img: './assets/d80d70d507191ca9b9e1394ec3aff9ec.jpg' },
+      { kind: 'Hobby · cards', cost: 'Free', badge: 'friends', title: 'Afternoon sueca at the stone tables', when: 'Afternoons · Praça do Marquês',
+        url: 'https://www.jpn.up.pt/2020/05/07/a-praca-onde-as-cartas-sao-o-trunfo-contra-o-tempo/',
+        img: './assets/48c00ca574a26b15cda5ea9e2a6c3792.jpg' },
+      { kind: 'Hobby · games', cost: 'Café prices', title: 'Board-game afternoons', when: 'Games library · Ponto2, Boavista',
+        url: 'https://agendaculturalporto.org/eventos/jogos-de-tabuleiro-no-cafe-ponto2/',
+        img: './assets/4bc1658b626734a15390bafcc0040d4d.jpg' },
+      { kind: 'Hobby · painting', cost: 'Monthly fee', title: 'Drawing & watercolour classes', when: 'Weekdays · Paranhos',
+        url: 'https://www.usc.pt/disciplinas.html',
+        img: './assets/4b22e9523e03a79e14895f3e574c3b5c.jpg' },
+      { kind: 'Hobby · music', cost: 'Monthly fee', title: 'Music lessons in a group', when: 'Weekdays · Boavista',
+        url: 'https://portoccd.org/universidade-senior',
+        img: './assets/ae6174549ce3e977d22b0a4884a26bf1.jpg' },
+      { kind: 'Hobby · dance', cost: 'Monthly fee', title: 'Dance, pilates & yoga', when: 'Weekdays · Boavista',
+        url: 'https://portoccd.org/universidade-senior',
+        img: './assets/b78abb6be80ee94d0eb57582c78470e6.jpg', pos: 'center top' }
+    ];
+    return {
+      events: (function () { var list = week.map(function (e) { return Object.assign({ pos: 'center' }, e, { isGrandkids: e.badge === 'grandkids', isFriends: e.badge === 'friends', isWalkin: e.badge === 'walkin' }); }); return list.concat(list); })(),
+      email: this.state.email,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      error: this.state.error,
+      onEmailChange: this.handleEmailChange,
+      onSubmit: this.handleSubmit
+    };
+  }
+}
+</script>
+</body>
+</html>

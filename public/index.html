@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PortoEvents | Discover More in the City</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700;800&family=Sora:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="auth-screen" id="authScreen">
+      <section class="auth-wrap">
+        <div class="logo-box">R</div>
+        <h1>Reconnect</h1>
+        <p>Bridging generations through skill sharing</p>
+        <form id="loginForm" class="login-card">
+          <h2>Sign Up</h2>
+          <label class="field-row" for="loginEmail">
+            <span class="field-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6H20C20.6 6 21 6.4 21 7V17C21 17.6 20.6 18 20 18H4C3.4 18 3 17.6 3 17V7C3 6.4 3.4 6 4 6Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M3.5 7L12 13L20.5 7" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <input id="loginEmail" type="email" required placeholder="Email" value="joao.festeiro@reconnect.pt" />
+          </label>
+
+          <label class="field-row" for="loginPassword">
+            <span class="field-icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 11V8.5C7 5.9 9.1 3.8 11.7 3.8C14.3 3.8 16.4 5.9 16.4 8.5V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <input id="loginPassword" type="password" required placeholder="Password" value="demo123" />
+            <span class="field-eye" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 12C3.7 8.6 7 6.5 12 6.5C17 6.5 20.3 8.6 22 12C20.3 15.4 17 17.5 12 17.5C7 17.5 3.7 15.4 2 12Z" stroke="currentColor" stroke-width="1.8"/>
+                <circle cx="12" cy="12" r="2.8" stroke="currentColor" stroke-width="1.8"/>
+              </svg>
+            </span>
+          </label>
+
+          <a class="forgot-link" href="#">Already have an account?</a>
+          <button type="submit" class="login-submit">Sign Up <span aria-hidden="true">-></span></button>
+        </form>
+      </section>
+    </main>
+
+    <main class="onboarding-screen hidden" id="onboardingScreen">
+      <section class="onboarding-card">
+        <h2>Which events do you enjoy most?</h2>
+        <p>Select your preferences to personalize your feed.</p>
+        <div class="prefs-grid" id="onboardingPrefsGrid"></div>
+        <button id="finishOnboardingBtn" type="button">Continue</button>
+      </section>
+    </main>
+
+    <main class="app-shell hidden" id="appShell">
+      <nav class="app-nav">
+        <div class="app-nav__brand">Reconnect Events</div>
+        <div class="app-nav__actions">
+          <button type="button" data-screen="home" class="nav-btn active">Home</button>
+          <div class="nav-profile-menu">
+            <button type="button" class="nav-user-btn" id="profileMenuTrigger" aria-haspopup="menu" aria-expanded="false">
+              <span class="nav-user-btn__avatar" id="profileNavAvatar"></span>
+              <span class="nav-user-btn__text">
+                <strong id="profileNavName">Profile</strong>
+                <small aria-hidden="true">▼</small>
+              </span>
+            </button>
+            <div class="nav-menu hidden" id="profileDropdown" role="menu">
+              <button type="button" class="nav-menu-item" data-screen="profile" role="menuitem">Profile</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section class="screen" id="screenHome">
+        <header class="topbar">
+          <div>
+            <h2 id="helloUser">Hello!</h2>
+            <p>Find events to enjoy with your people</p>
+          </div>
+          <span class="dot"></span>
+        </header>
+
+        <div class="search-row">
+          <input id="searchInput" type="text" placeholder="Search events..." />
+        </div>
+
+        <div class="map-top home-map">
+          <div id="eventsMap" class="events-map" aria-label="Events map"></div>
+        </div>
+
+        <div class="chip-row" id="mapCategories"></div>
+
+        <div class="chip-row">
+          <button class="chip chip-strong" type="button">+ Create Event</button>
+          <label class="chip check-chip" for="onlyPreferred">
+            <input id="onlyPreferred" type="checkbox" />
+            Favorites
+          </label>
+        </div>
+
+        <h3 class="section-title">Suggested For You</h3>
+        <section class="feed-list" id="eventsList"></section>
+        <div class="feed-actions">
+          <button id="moreEventsBtn" class="more-events-btn" type="button">More</button>
+        </div>
+
+        <h3 class="section-title">Near You</h3>
+        <section class="near-row" id="nearRow"></section>
+
+        <section class="highlight" id="highlightCard"></section>
+      </section>
+
+      <section class="screen hidden" id="screenProfile">
+        <header class="profile-header">Profile</header>
+        <section class="profile-card">
+          <div class="avatar" id="profileAvatar"></div>
+          <div>
+            <h3 id="profileName">User</h3>
+            <p id="profileEmail">email</p>
+          </div>
+        </section>
+
+        <section class="prefs-block">
+          <h3>Event Preferences</h3>
+          <div class="prefs-grid" id="prefsGrid"></div>
+          <button id="savePrefsBtn" type="button">Save Preferences</button>
+        </section>
+
+        <button id="logoutBtn" class="logout" type="button">Log Out</button>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

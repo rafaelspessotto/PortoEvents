@@ -1,0 +1,11 @@
+[
+  {
+    "id": "agenda-porto",
+    "name": "Agenda Porto",
+    "url": "https://www.agenda-porto.pt/",
+    "city": "Porto",
+    "scraper": "agenda-porto",
+    "enabled": true,
+    "maxItems": 60
+  }
+]

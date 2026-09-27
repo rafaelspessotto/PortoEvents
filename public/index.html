@@ -60,10 +60,34 @@
 
     <main class="onboarding-screen hidden" id="onboardingScreen">
       <section class="onboarding-card">
-        <h2>Which events do you enjoy most?</h2>
-        <p>Select your preferences to personalize your feed.</p>
-        <div class="prefs-grid" id="onboardingPrefsGrid"></div>
-        <button id="finishOnboardingBtn" type="button">Continue</button>
+        <h2>Tell us more about your event profile</h2>
+        <p>Choose your interests and share important needs so recommendations are safer and more useful.</p>
+
+        <div class="wizard-group">
+          <h3>Interest Areas</h3>
+          <div class="prefs-grid" id="onboardingPrefsGrid"></div>
+        </div>
+
+        <div class="wizard-grid">
+          <label class="wizard-field" for="onboardingDisabilities">
+            <span>Accessibility Needs</span>
+            <input id="onboardingDisabilities" type="text" placeholder="Wheelchair access, hearing support..." />
+          </label>
+
+          <label class="wizard-field" for="onboardingDiets">
+            <span>Food Diets</span>
+            <input id="onboardingDiets" type="text" placeholder="Low sodium, diabetic-friendly, vegan..." />
+          </label>
+        </div>
+
+        <label class="wizard-field" for="onboardingDiseases">
+          <span>Health Conditions to Consider</span>
+          <textarea id="onboardingDiseases" rows="2" placeholder="Optional notes to improve event suggestions"></textarea>
+        </label>
+
+        <div class="wizard-group hidden" id="onboardingInterestDetails"></div>
+
+        <button id="finishOnboardingBtn" class="onboarding-submit" type="button">Continue</button>
       </section>
     </main>
 

@@ -195,6 +195,153 @@ body {
   color: var(--muted);
 }
 
+.wizard-group h3 {
+  margin: 0 0 8px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 1rem;
+}
+
+.wizard-interest-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.wizard-interest-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  padding: 10px;
+}
+
+.wizard-interest-card h4 {
+  margin: 0 0 8px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 0.95rem;
+}
+
+.wizard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.wizard-field {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.wizard-field span {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.wizard-field input,
+.wizard-field textarea {
+  width: 100%;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: var(--text);
+}
+
+.wizard-field textarea {
+  resize: vertical;
+  min-height: 76px;
+}
+
+.wizard-music {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.wizard-music label,
+.wizard-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 8px 10px;
+  font-size: 0.86rem;
+}
+
+.wizard-music input,
+.wizard-options input {
+  margin: 0;
+}
+
+.wizard-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wizard-option-pill {
+  position: relative;
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.wizard-option-pill input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.wizard-option-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #d7dfd8;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffffff 0%, #f7faf7 100%);
+  padding: 8px 11px;
+  font-size: 0.86rem;
+  color: #244231;
+  box-shadow: 0 4px 10px rgba(24, 47, 31, 0.06);
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.wizard-option-emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.wizard-option-pill:hover .wizard-option-content {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(24, 47, 31, 0.1);
+}
+
+.wizard-option-pill input:checked + .wizard-option-content {
+  border-color: #78a268;
+  background: linear-gradient(180deg, #eefdcc 0%, #dff6b2 100%);
+  box-shadow: 0 8px 16px rgba(98, 148, 59, 0.22);
+}
+
+.wizard-option-pill input:focus-visible + .wizard-option-content {
+  outline: 3px solid rgba(120, 162, 104, 0.35);
+  outline-offset: 1px;
+}
+
+.onboarding-submit {
+  width: 100%;
+  margin-top: 14px;
+  min-height: 50px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #153827 0%, #2d6c3d 100%);
+  box-shadow: 0 12px 24px rgba(21, 56, 39, 0.24);
+}
+
 .onboarding-card .login-card {
   box-shadow: none;
   border: 1px solid var(--line);
@@ -226,7 +373,7 @@ button {
 .app-nav {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 1200;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -354,10 +501,13 @@ button {
 }
 
 .event-favorite-btn__icon {
-  font-size: 1.25rem;
+  width: 19px;
+  height: 19px;
+  stroke: rgba(255, 255, 255, 0.95);
+  stroke-width: 2;
+  fill: transparent;
   line-height: 1;
-  color: rgba(255, 255, 255, 0.95);
-  transform: translateY(-1px);
+  transform: translateY(-0.5px);
 }
 
 .event-favorite-btn:hover {
@@ -376,7 +526,8 @@ button {
 }
 
 .event-favorite-btn.is-favorite .event-favorite-btn__icon {
-  color: #fff;
+  fill: #fff;
+  stroke: #fff;
 }
 
 .event-cover {
@@ -484,6 +635,8 @@ button {
   margin-top: 10px;
   width: 100%;
   height: 250px;
+  position: relative;
+  z-index: 1;
   border-radius: 18px;
   border: 1px solid var(--line);
   background: #fff;
@@ -868,6 +1021,10 @@ button {
     left: 0;
     right: 0;
     min-width: 0;
+  }
+
+  .wizard-grid {
+    grid-template-columns: 1fr;
   }
 
   .profile-card {

@@ -44,6 +44,10 @@ const nearRowEl = document.getElementById("nearRow");
 const highlightCardEl = document.getElementById("highlightCard");
 const prefsGridEl = document.getElementById("prefsGrid");
 const onboardingPrefsGridEl = document.getElementById("onboardingPrefsGrid");
+const onboardingDisabilitiesEl = document.getElementById("onboardingDisabilities");
+const onboardingDietsEl = document.getElementById("onboardingDiets");
+const onboardingDiseasesEl = document.getElementById("onboardingDiseases");
+const onboardingInterestDetailsEl = document.getElementById("onboardingInterestDetails");
 const mapCategoriesEl = document.getElementById("mapCategories");
 
 const screenHome = document.getElementById("screenHome");
@@ -56,6 +60,7 @@ let filteredEvents = [];
 let mapInstance = null;
 let mapMarkers = [];
 let visibleEventsCount = 8;
+let onboardingInterestDraft = {};
 const geoCache = readGeoCache();
 
 const EVENTS_PAGE_SIZE = 8;
@@ -102,6 +107,65 @@ const ELDERLY_EXCLUDE_KEYWORDS = [
   "noite academica",
 ];
 
+const INTEREST_DETAIL_OPTIONS = {
+  musica: {
+    title: "Preferred Music Styles",
+    options: ["Classical", "Fado", "Jazz", "Choral", "Folk", "Instrumental", "Choir"],
+  },
+  cinema: {
+    title: "Preferred Cinema Styles",
+    options: ["Classic", "Drama", "Documentary", "Comedy", "Musical", "Portuguese Cinema"],
+  },
+  teatro: {
+    title: "Preferred Theater Styles",
+    options: ["Comedy", "Drama", "Classic", "Experimental", "Musical", "Community Theater"],
+  },
+  desporto: {
+    title: "Preferred Sports Activities",
+    options: ["Walking", "Light Gym", "Dance", "Yoga", "Hydrogymnastics", "Senior Fitness"],
+  },
+};
+
+const INTEREST_OPTION_EMOJIS = {
+  musica: {
+    Classical: "🎻",
+    Fado: "🎤",
+    Jazz: "🎷",
+    Choral: "🎶",
+    Folk: "🪕",
+    Instrumental: "🎹",
+    Choir: "🕊️",
+  },
+  cinema: {
+    Classic: "🎞️",
+    Drama: "🎭",
+    Documentary: "📽️",
+    Comedy: "😂",
+    Musical: "🎼",
+    "Portuguese Cinema": "🇵🇹",
+  },
+  teatro: {
+    Comedy: "😄",
+    Drama: "🎭",
+    Classic: "🏛️",
+    Experimental: "✨",
+    Musical: "🎵",
+    "Community Theater": "🤝",
+  },
+  desporto: {
+    Walking: "🚶",
+    "Light Gym": "💪",
+    Dance: "💃",
+    Yoga: "🧘",
+    Hydrogymnastics: "🏊",
+    "Senior Fitness": "🌿",
+  },
+};
+
+function getInterestOptionEmoji(prefId, option) {
+  return INTEREST_OPTION_EMOJIS[prefId]?.[option] || "✨";
+}
+
 function readUsers() {
   const raw = localStorage.getItem(USERS_KEY);
   if (!raw) return {};
@@ -142,6 +206,13 @@ function readUser() {
       email: parsed.email || "",
       preferences: Array.isArray(parsed.preferences) ? parsed.preferences : [],
       favoriteEventIds: Array.isArray(parsed.favoriteEventIds) ? parsed.favoriteEventIds : [],
+      accessibilityNeeds: parsed.accessibilityNeeds || "",
+      dietaryNeeds: parsed.dietaryNeeds || "",
+      healthConditions: parsed.healthConditions || "",
+      interestDetails:
+        parsed.interestDetails && typeof parsed.interestDetails === "object"
+          ? parsed.interestDetails
+          : {},
       onboarded: Boolean(parsed.onboarded),
       avatar: resolveAvatar(parsed.email, parsed.avatar),
     };
@@ -324,7 +395,25 @@ function renderOnboardingState() {
   authScreenEl.classList.add("hidden");
   appShellEl.classList.add("hidden");
   onboardingScreenEl.classList.remove("hidden");
+  onboardingInterestDraft = { ...(currentUser?.interestDetails || {}) };
   renderOnboardingPreferences();
+  renderOnboardingDetails();
+}
+
+function renderOnboardingDetails() {
+  if (onboardingDisabilitiesEl) {
+    onboardingDisabilitiesEl.value = currentUser?.accessibilityNeeds || "";
+  }
+
+  if (onboardingDietsEl) {
+    onboardingDietsEl.value = currentUser?.dietaryNeeds || "";
+  }
+
+  if (onboardingDiseasesEl) {
+    onboardingDiseasesEl.value = currentUser?.healthConditions || "";
+  }
+
+  renderOnboardingInterestDetails();
 }
 
 function renderPreferences() {
@@ -341,6 +430,59 @@ function renderOnboardingPreferences() {
     const active = selected.has(pref.id) ? "active" : "";
     return `<label class="pref-item ${active}"><input type="checkbox" value="${pref.id}" ${active ? "checked" : ""}>${pref.label}</label>`;
   }).join("");
+  renderOnboardingInterestDetails();
+}
+
+function getOnboardingSelectedPreferences() {
+  return Array.from(onboardingPrefsGridEl.querySelectorAll("input:checked")).map((input) => input.value);
+}
+
+function renderOnboardingInterestDetails() {
+  if (!onboardingInterestDetailsEl) return;
+
+  const selectedPreferences = getOnboardingSelectedPreferences();
+  const selectedWithDetails = selectedPreferences.filter((prefId) => INTEREST_DETAIL_OPTIONS[prefId]);
+
+  if (!selectedWithDetails.length) {
+    onboardingInterestDetailsEl.classList.add("hidden");
+    onboardingInterestDetailsEl.innerHTML = "";
+    return;
+  }
+
+  onboardingInterestDetailsEl.classList.remove("hidden");
+  onboardingInterestDetailsEl.innerHTML = `
+    <h3>Preferred Styles By Interest</h3>
+    <div class="wizard-interest-grid">
+      ${selectedWithDetails
+        .map((prefId) => {
+          const config = INTEREST_DETAIL_OPTIONS[prefId];
+          const selectedValues = new Set(onboardingInterestDraft[prefId] || []);
+
+          return `
+            <section class="wizard-interest-card">
+              <h4>${config.title}</h4>
+              <div class="wizard-options">
+                ${config.options
+                  .map(
+                    (option) =>
+                      `<label class="wizard-option-pill"><input type="checkbox" data-interest-detail="${prefId}" value="${option}" ${
+                        selectedValues.has(option) ? "checked" : ""
+                      } /><span class="wizard-option-content"><span class="wizard-option-emoji">${getInterestOptionEmoji(prefId, option)}</span><span class="wizard-option-text">${option}</span></span></label>`,
+                  )
+                  .join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+
+  const nextDraft = {};
+  selectedWithDetails.forEach((prefId) => {
+    nextDraft[prefId] = Array.isArray(onboardingInterestDraft[prefId]) ? onboardingInterestDraft[prefId] : [];
+  });
+  onboardingInterestDraft = nextDraft;
 }
 
 function renderMapCategories() {
@@ -391,7 +533,9 @@ function renderHomeSections() {
         data-event-favorite="${event.id}"
         aria-label="${isFavoriteEvent(event.id) ? "Remove from favorites" : "Add to favorites"}"
       >
-        <span class="event-favorite-btn__icon" aria-hidden="true">${isFavoriteEvent(event.id) ? "♥" : "♡"}</span>
+        <svg class="event-favorite-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+        </svg>
       </button>
       <img class="event-cover" src="${event.image || FALLBACK_AVATAR}" alt="Event ${event.title}">
       <div class="event-overlay">
@@ -554,6 +698,10 @@ loginFormEl.addEventListener("submit", async (event) => {
     email,
     preferences: [],
     favoriteEventIds: [],
+    accessibilityNeeds: "",
+    dietaryNeeds: "",
+    healthConditions: "",
+    interestDetails: {},
     onboarded: false,
     avatar: resolveAvatar(email),
   };
@@ -570,10 +718,21 @@ finishOnboardingBtn.addEventListener("click", async () => {
   const selected = Array.from(document.querySelectorAll("#onboardingPrefsGrid input:checked")).map(
     (el) => el.value,
   );
+  const selectedDetailKeys = selected.filter((prefId) => INTEREST_DETAIL_OPTIONS[prefId]);
+  const nextInterestDetails = {};
+  selectedDetailKeys.forEach((prefId) => {
+    nextInterestDetails[prefId] = Array.isArray(onboardingInterestDraft[prefId])
+      ? onboardingInterestDraft[prefId]
+      : [];
+  });
 
   const updated = {
     ...currentUser,
     preferences: selected,
+    accessibilityNeeds: onboardingDisabilitiesEl?.value.trim() || "",
+    dietaryNeeds: onboardingDietsEl?.value.trim() || "",
+    healthConditions: onboardingDiseasesEl?.value.trim() || "",
+    interestDetails: nextInterestDetails,
     onboarded: true,
   };
 
@@ -642,6 +801,20 @@ onboardingPrefsGridEl.addEventListener("click", (event) => {
   const input = label.querySelector("input");
   input.checked = !input.checked;
   label.classList.toggle("active", input.checked);
+  renderOnboardingInterestDetails();
+});
+
+onboardingInterestDetailsEl?.addEventListener("change", (event) => {
+  const target = event.target;
+  if (!(target instanceof HTMLInputElement)) return;
+  const prefId = target.dataset.interestDetail;
+  if (!prefId) return;
+
+  const checkedValues = Array.from(
+    onboardingInterestDetailsEl.querySelectorAll(`input[data-interest-detail='${prefId}']:checked`),
+  ).map((input) => input.value);
+
+  onboardingInterestDraft[prefId] = checkedValues;
 });
 
 navButtons.forEach((btn) => {

@@ -36,6 +36,9 @@ const profileMenuTriggerEl = document.getElementById("profileMenuTrigger");
 const profileDropdownEl = document.getElementById("profileDropdown");
 const profileNameEl = document.getElementById("profileName");
 const profileEmailEl = document.getElementById("profileEmail");
+const profileCityTagEl = document.getElementById("profileCityTag");
+const profilePrefsCountEl = document.getElementById("profilePrefsCount");
+const profileSuggestedCountEl = document.getElementById("profileSuggestedCount");
 const eventsListEl = document.getElementById("eventsList");
 const nearRowEl = document.getElementById("nearRow");
 const highlightCardEl = document.getElementById("highlightCard");
@@ -138,6 +141,7 @@ function readUser() {
       name: resolveName(parsed.email, parsed.name),
       email: parsed.email || "",
       preferences: Array.isArray(parsed.preferences) ? parsed.preferences : [],
+      favoriteEventIds: Array.isArray(parsed.favoriteEventIds) ? parsed.favoriteEventIds : [],
       onboarded: Boolean(parsed.onboarded),
       avatar: resolveAvatar(parsed.email, parsed.avatar),
     };
@@ -192,6 +196,35 @@ function eventMatchesPreference(event, preferenceId) {
 function isPreferred(event) {
   if (!currentUser?.preferences?.length) return false;
   return currentUser.preferences.some((prefId) => eventMatchesPreference(event, prefId));
+}
+
+function isFavoriteEvent(eventId) {
+  if (!currentUser?.favoriteEventIds?.length) return false;
+  return currentUser.favoriteEventIds.includes(eventId);
+}
+
+function toggleFavoriteEvent(eventId) {
+  if (!currentUser || !eventId) return;
+
+  const current = new Set(currentUser.favoriteEventIds || []);
+  if (current.has(eventId)) {
+    current.delete(eventId);
+  } else {
+    current.add(eventId);
+  }
+
+  const updated = {
+    ...currentUser,
+    favoriteEventIds: Array.from(current),
+  };
+
+  const users = readUsers();
+  users[currentUser.email.toLowerCase()] = updated;
+  saveUsers(users);
+  saveUser(updated);
+
+  filterEvents();
+  renderHomeSections();
 }
 
 function formatDate(dateString) {
@@ -263,9 +296,28 @@ function renderAuthState() {
   profileAvatarEl.innerHTML = avatarMarkup;
   profileNavAvatarEl.innerHTML = avatarMarkup;
 
+  updateProfileStats();
   renderPreferences();
   renderMapCategories();
   setScreen("home");
+}
+
+function updateProfileStats() {
+  const preferencesCount = currentUser?.preferences?.length || 0;
+  const suggestedCount = filteredEvents.length || 0;
+  const city = payload.events[0]?.city || "Porto";
+
+  if (profilePrefsCountEl) {
+    profilePrefsCountEl.textContent = String(preferencesCount);
+  }
+
+  if (profileSuggestedCountEl) {
+    profileSuggestedCountEl.textContent = String(suggestedCount);
+  }
+
+  if (profileCityTagEl) {
+    profileCityTagEl.textContent = `${city} Community`;
+  }
 }
 
 function renderOnboardingState() {
@@ -310,9 +362,14 @@ function filterEvents() {
     list = list.filter(isPreferred);
   }
 
-  list.sort((a, b) => Number(isPreferred(b)) - Number(isPreferred(a)));
+  list.sort((a, b) => {
+    const favoriteDiff = Number(isFavoriteEvent(b.id)) - Number(isFavoriteEvent(a.id));
+    if (favoriteDiff !== 0) return favoriteDiff;
+    return Number(isPreferred(b)) - Number(isPreferred(a));
+  });
   filteredEvents = list;
   visibleEventsCount = EVENTS_PAGE_SIZE;
+  updateProfileStats();
 }
 
 function renderHomeSections() {
@@ -328,6 +385,14 @@ function renderHomeSections() {
 
   eventsListEl.innerHTML = visibleEvents.map((event) => `
     <article class="event-row" tabindex="0" aria-label="${event.title}">
+      <button
+        class="event-favorite-btn ${isFavoriteEvent(event.id) ? "is-favorite" : ""}"
+        type="button"
+        data-event-favorite="${event.id}"
+        aria-label="${isFavoriteEvent(event.id) ? "Remove from favorites" : "Add to favorites"}"
+      >
+        <span class="event-favorite-btn__icon" aria-hidden="true">${isFavoriteEvent(event.id) ? "♥" : "♡"}</span>
+      </button>
       <img class="event-cover" src="${event.image || FALLBACK_AVATAR}" alt="Event ${event.title}">
       <div class="event-overlay">
         <div class="event-overlay__content">
@@ -363,7 +428,11 @@ function renderHomeSections() {
 
 function ensureMap() {
   if (mapInstance || typeof L === "undefined") return;
-  mapInstance = L.map("eventsMap", { center: [41.1579, -8.6291], zoom: 12 });
+  mapInstance = L.map("eventsMap", {
+    center: [41.1579, -8.6291],
+    zoom: 12,
+    scrollWheelZoom: false,
+  });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: "&copy; OpenStreetMap",
@@ -484,6 +553,7 @@ loginFormEl.addEventListener("submit", async (event) => {
     name: defaultName,
     email,
     preferences: [],
+    favoriteEventIds: [],
     onboarded: false,
     avatar: resolveAvatar(email),
   };
@@ -539,6 +609,23 @@ savePrefsBtn.addEventListener("click", () => {
 moreEventsBtn.addEventListener("click", () => {
   visibleEventsCount += EVENTS_PAGE_SIZE;
   renderHomeSections();
+});
+
+eventsListEl.addEventListener("click", (event) => {
+  const favoriteBtn = event.target.closest("button[data-event-favorite]");
+  if (!favoriteBtn) return;
+  event.stopPropagation();
+  toggleFavoriteEvent(favoriteBtn.dataset.eventFavorite);
+});
+
+eventsListEl.addEventListener("keydown", (event) => {
+  const favoriteBtn = event.target.closest("button[data-event-favorite]");
+  if (!favoriteBtn) return;
+
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    toggleFavoriteEvent(favoriteBtn.dataset.eventFavorite);
+  }
 });
 
 prefsGridEl.addEventListener("click", (event) => {
